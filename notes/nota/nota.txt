@@ -1,0 +1,22 @@
+1.Fazer a gameplay, o looping do jogo
+	1a. Começar pelo personagem, colocando a sprite dele, 
+		arrumando a origem e colisão e fazendo algumas mecânicas dele. 
+		Posteriormente adicionar à mecânica que faz ele tomar dano;
+	
+	1b. Fazer o inimigo, colocar a sprite dele, fazer ele dar dano
+		e fazer ele spawnar aleatóriamente no jogo;
+	
+	1c. Fazer os itens coletáveis do jogo, adicionando todas as sprites
+		e a mecânica de coletá-los;
+		
+	1d. Adicionar um contador de pontos;
+	
+   (1e. Talvez adicionar power-ups e mudanças na gameplay)
+   
+2.Tela inicial
+	2a. Adicionar as imagens dos quadrinhos, poder "pular" para o próximo
+		quadrinho, para seguir a "história".
+
+3.Sons
+	3a. Adicionar os sons dos coletáveis e a música do jogo.
+		
