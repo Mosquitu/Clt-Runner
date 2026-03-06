@@ -19,4 +19,5 @@
 
 3.Sons
 	3a. Adicionar os sons dos coletáveis e a música do jogo.
-		
+
+
