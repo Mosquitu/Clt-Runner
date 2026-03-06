@@ -17,16 +17,20 @@ troca_lado=function()
 	{
 		//então estou na esquerda
 		esq=true;
+		//informando que não estou na direita
+		dir=false;
 	}
 	else //caso contrário, ou seja, se eu NÃO estiver abaixo da metade do tamanho da room
 	{
 		//eu estou na direita
-		dir=true;	
+		dir=true;
+		//informando que não estou na esquerda
+		esq=false;
 	}
 	
 	
 	//Eu só posso ir pra direita se eu estiver no lado esquerdo da tela
-	if(esq=true)
+	if(esq==true)
 	{
 		//se eu apertar D
 		if(_right)
@@ -42,7 +46,7 @@ troca_lado=function()
 			
 		}
 	}
-	if(dir=true)
+	if(dir==true)
 	{
 		if(_left)
 		{
