@@ -1,10 +1,10 @@
 //iniciando as variáveis do player
-vel=4;
 dir=noone;
 esq=noone;
+vida=3;
+tempo_invencivel=0;
 
-
-//trocando de lado
+#region //trocando de lado
 troca_lado=function()
 {
 	//iniciando os comandos
@@ -59,5 +59,43 @@ troca_lado=function()
 			//informo que não estou na direita
 			dir=false;
 		}
+	}
+}
+#endregion
+
+#region tomar dano
+toma_dano = function()
+{
+	//só posso tomar dano se minha vida estiver acima de 0 e não estou invencivel
+	if (vida > 0 && tempo_invencivel <= 0)
+	{
+		//perco vida
+		vida--;
+		//fico invencivel
+		tempo_invencivel = 15;
+		//piscando
+	}
+}
+colide = function()
+{
+	if (place_meeting(x, y, obj_inimigo))
+	{
+		toma_dano();	
+	}
+}
+#endregion
+
+//desenhando as vidas que o player tem
+desenha_vida = function(_icone = spr_vida, qtd = 1)
+{
+	//o espaço entre os corações
+	var _espaco = 0
+	repeat(qtd)
+	{
+		//desenhando os sprites
+		draw_sprite_ext(_icone, 0, _espaco, room_height * 3.8, 3, 3, 0, c_white, 1);
+		
+		//aumentando o espaço 
+		_espaco += 45;
 	}
 }
