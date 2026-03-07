@@ -73,7 +73,6 @@ toma_dano = function()
 		vida--;
 		//fico invencivel
 		tempo_invencivel = 15;
-		//piscando
 	}
 }
 colide = function()
