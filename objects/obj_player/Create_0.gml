@@ -3,6 +3,10 @@ dir=noone;
 esq=noone;
 vida=3;
 tempo_invencivel=0;
+morto=false;
+tempo_morto=0;
+ganho_vida=200;
+morri=0;
 
 #region //trocando de lado
 troca_lado=function()
@@ -62,7 +66,6 @@ troca_lado=function()
 	}
 }
 #endregion
-
 #region tomar dano
 toma_dano = function()
 {
@@ -73,28 +76,52 @@ toma_dano = function()
 		vida--;
 		//fico invencivel
 		tempo_invencivel = 15;
+		
+		//som de tomar dano
+		audio_play_sound(snd_hurt, -1, 0);
+	}
+	//se estou sem vidas, eu morro
+	if (vida <= 0)
+	{
+		morto = true;
 	}
 }
 colide = function()
 {
+	//se eu colidir com o inimigo
 	if (place_meeting(x, y, obj_inimigo))
 	{
+		//executo a função de perder vida
 		toma_dano();	
+	}
+	//se eu colidir com o coletável
+	if (place_meeting(x, y, obj_coletavel_1))
+	{
+		//toco o som de coleta
+		audio_play_sound(snd_coletavel, 1, 0);
+		
+		//destruo APENAS o coletável que eu encostei
+		//isso evita o bug de se estiver mais de um
+		instance_destroy(obj_coletavel_1.id);
 	}
 }
 #endregion
-
+#region vidas
 //desenhando as vidas que o player tem
 desenha_vida = function(_icone = spr_vida, qtd = 1)
 {
-	//o espaço entre os corações
-	var _espaco = 0
-	repeat(qtd)
-	{
-		//desenhando os sprites
-		draw_sprite_ext(_icone, 0, _espaco, room_height * 3.8, 3, 3, 0, c_white, 1);
-		
-		//aumentando o espaço 
-		_espaco += 45;
-	}
+		//o espaço entre os corações
+		var _espaco = 0
+		repeat(qtd)
+		{
+				if (vida <= 3)
+				{
+					//desenhando os sprites
+					draw_sprite_ext(_icone, 0, _espaco, room_height * 3.8, 3, 3, 0, c_white, 1);
+					
+					//aumentando o espaço 
+					_espaco += 45;
+				}
+		}
 }
+#endregion
