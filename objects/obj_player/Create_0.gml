@@ -110,18 +110,18 @@ colide = function()
 //desenhando as vidas que o player tem
 desenha_vida = function(_icone = spr_vida, qtd = 1)
 {
-		//o espaço entre os corações
-		var _espaco = 0
-		repeat(qtd)
+	//o espaço entre os corações
+	var _espaco = 0
+	repeat(qtd)
+	{
+		if (vida <= 3)
 		{
-				if (vida <= 3)
-				{
-					//desenhando os sprites
-					draw_sprite_ext(_icone, 0, _espaco, room_height * 3.8, 3, 3, 0, c_white, 1);
-					
-					//aumentando o espaço 
-					_espaco += 45;
-				}
+			//desenhando os sprites
+			draw_sprite_ext(_icone, 0, _espaco, room_height * 3.8, 3, 3, 0, c_white, 1);
+			
+			//aumentando o espaço 
+			_espaco += 45;
 		}
+	}
 }
 #endregion
