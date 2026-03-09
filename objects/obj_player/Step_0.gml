@@ -24,7 +24,7 @@ if(morto)
 //tocando o som de quando ganho vida
 if (global.pontuacao >= ganho_vida)
 {
-	audio_play_sound(snd_1up, 1, 0);	
+	audio_play_sound(snd_1up, 1, 0, 2);	
 	ganho_vida += 200;
 	vida += 1;
 }
@@ -34,5 +34,3 @@ if (vida >= 3)
 	//eu volto a ter 3 vidas
 	vida = 3;	
 }
-
-show_debug_message(tempo_morto);

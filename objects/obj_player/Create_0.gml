@@ -4,7 +4,6 @@ esq=noone;
 vida=3;
 tempo_invencivel=0;
 morto=false;
-tempo_morto=0;
 ganho_vida=200;
 morri=0;
 
@@ -78,7 +77,7 @@ toma_dano = function()
 		tempo_invencivel = 15;
 		
 		//som de tomar dano
-		audio_play_sound(snd_hurt, -1, 0);
+		audio_play_sound(snd_hurt, -1, 0, 2);
 	}
 	//se estou sem vidas, eu morro
 	if (vida <= 0)

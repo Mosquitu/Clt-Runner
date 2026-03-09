@@ -1,7 +1,6 @@
 //variável de controle
 timer_spawna_inimigo	= 60;
 timer_spawna_coletavel	= 120;
-
 #region spawn player
 //spawnando o player
 spawn_player = function()
@@ -9,12 +8,17 @@ spawn_player = function()
 	//definindo aonde o player vai nascer
 	var _meu_x, _meu_y
 	_meu_x = room_width/11;
-	_meu_y = room_height - 40;
+	_meu_y = room_height - 60;
 	//se o player NÃO existir
 	if (!instance_exists(obj_player))
 	{
 		//eu crio o player
 		instance_create_layer(_meu_x, _meu_y, "player", obj_player);
+		
+	}
+	if (!audio_is_playing(snd_musica))
+	{
+		audio_play_sound(snd_musica, 1, 1);	
 	}
 }
 //usando a função de spawn
@@ -35,7 +39,7 @@ spawn_inimigo = function()
 		//criando o inimigo
 		instance_create_layer(_xx, _yy, "inimigo", obj_inimigo);
 		//reiniciando o timer do spawner
-		timer_spawna_inimigo = 120;
+		timer_spawna_inimigo = random_range(45, 120);
 	}
 	timer_spawna_inimigo -= 1;
 }
@@ -49,8 +53,8 @@ spawn_coletavel = function()
 	var _yy			= -32;
 	
 	//escolhendo qual objeto vou spawnar
-	var _coletavel	= choose(obj_coletavel_1, obj_coletavel_2, obj_coletavel_3)
-	
+	var _coletavel	= choose(obj_coletavel_1, obj_coletavel_2, obj_coletavel_3, obj_coletavel_4)
+
 	//se o timer for menor ou igual a 0
 	if (timer_spawna_coletavel <= 0)
 	{
